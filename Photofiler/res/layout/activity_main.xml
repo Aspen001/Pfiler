@@ -1,0 +1,190 @@
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_layout_flip"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111111"
+    android:orientation="vertical"
+    android:paddingBottom="0dp"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#111111"
+        android:orientation="vertical"
+        android:paddingBottom="0dp" >
+
+        <ViewFlipper
+            android:id="@+id/side_layout_flip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top" >
+
+            <!--
+         A vertical LinearLayout in a ScrollView. This emulates a ListView (and is lighter weight
+         than a ListView when there aren't many rows).
+            -->
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <!--
+             Note that this LinearLayout has the "animateLayoutChanges" property set to true.
+             This tells the framework to automatically animate child views (in this case, rows)
+             as they are added to and removed from the LinearLayout.
+                -->
+
+                <LinearLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:background="@android:color/transparent"
+                    android:divider="@color/Grey_Divider"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle"
+                    android:textColor="@android:color/white" />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/select_intro"
+                    android:textStyle="bold" />
+
+                <Gallery
+                    android:id="@+id/gallery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/show_intro"
+                    android:textStyle="italic" />
+
+                <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:contentDescription="@string/picture" />
+            </LinearLayout>
+        </ViewFlipper>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="0"
+            android:background="#111111"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="0dp"
+            tools:context=".MainActivity" >
+
+            <ImageButton
+                android:id="@+id/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:contentDescription="@+id/settingsString"
+                android:minHeight="30dp"
+                android:minWidth="30dp"
+                android:onClick="fileBrowser"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/settings_button" />
+
+            <ImageButton
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:contentDescription="@+id/addString"
+                android:minHeight="30dp"
+                android:minWidth="30dp"
+                android:onClick="addFolder"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/add_button" />
+
+            <ImageButton
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:contentDescription="@+id/removeString"
+                android:minHeight="30dp"
+                android:minWidth="30dp"
+                android:onClick="flip2"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/remove_button" />
+
+            <ImageButton
+                android:id="@+id/videoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:contentDescription="@+id/videoString"
+                android:minHeight="30dp"
+                android:minWidth="30dp"
+                android:onClick="startVideo"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/video_button" />
+
+            <ImageButton
+                android:id="@+id/cameraButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/button_style"
+                android:contentDescription="@+id/cameraString"
+                android:longClickable="false"
+                android:minHeight="30dp"
+                android:minWidth="30dp"
+                android:onClick="startPhoto"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/camera_button" />
+        </LinearLayout>
+    </LinearLayout>
+    
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textUserSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity" />
+</LinearLayout>
+    
+</ViewFlipper>

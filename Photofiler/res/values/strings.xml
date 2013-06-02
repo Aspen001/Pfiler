@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Photofiler</string>
+    <string name="action_settings">Settings</string>
+
+    <color name="BG_Black">#000000</color>
+    <color name="ButtonGrey1">#333333</color>
+    <color name="BG_Buttons_FBlue">#0088FF</color>
+    <color name="Grey_Divider">#555555</color>
+    <color name="Font">#D4D4D4</color>
+
+    <string name="settingsButton">Settings</string>
+    <string name="removeButton">Remove</string>
+    <string name="addButton">Add</string>
+    <string name="cameraButton">Camera</string>
+    <string name="videoButton">Video</string>
+    <string name="settingsString">Settings</string>
+    <string name="hello">Hello World, PhotoIntentActivity!</string>
+    <string name="cannot">Cannot</string>
+    <string name="album_name">Photofiler</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="imageView">Viewer</string>
+    <string name="title_layout_changes">Layout Changes</string>
+    <string name="title_template_step">Step </string>
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
+    <string name="action_finish">Finish</string>
+    <string name="picture">Picture</string>
+	<string name="select_intro">Long-press a thumbnail to add an image</string>
+	<string name="show_intro">Press a thumbnail to display at larger size</string>
+    <string name="action_add_item">Add item</string>
+    <string name="action_remove_item">Remove item</string>
+    
+    
+    
+    <!-- Strings used for settings layout -->
+    <string name="sett">Settings</string> 
+    <string name="show_hf">Show Hidden Folders</string> 
+    <string name="def_stor">Default Storage</string>
+    <string name="help">Help </string>
+    <string name="about">About</string>
+    <string name="help_textView"> </string>
+    <string name="about_textView"> </string>
+    <string name ="log_out">Log Out</string>
+    <string name ="back">Back</string>
+     
+    <!-- String used for Log in view -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register">Log In</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="menu_forgot_password">Recover lost password</string>
+    <string name="login_progress_signing_in">Signing in&#8230;</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="create_acc">Register</string>
+    <string name="please_reg">Please register if you dont have an account</string>
+    
+ 	<string name="home">Home</string>
+ 	
+ 	<!-- This is used for the switching between pictures -->
+ 	<string name="title_activity_picture_viewer">PictureViewer</string>
+ 
+ 	<string name = "search_pic">Search</string>
+ 	
+ 	
+ 	<string name="pref_send_report">Send crash reports</string>
+    <string name="pref_send_report_summary">Helps to fix bugs</string>
+    <string name="pref_sync_frequency">Sync frequency</string>
+    <string name="pref_sync_frequency_summary">Set the sync frequency</string>
+    <string name="pref_user_name">Set username</string>
+    <string name="pref_user_name_summary">Set your username</string>
+    
+    <string name="pref_user_profile">User Profile</string>
+    <string name="pref_update_setting">Update Settings</string>
+     <string name="your_comment">The comment</string>
+      <string name="send">Send</string>
+
+
+</resources>
