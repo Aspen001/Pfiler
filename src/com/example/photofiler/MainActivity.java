@@ -71,9 +71,6 @@ public class MainActivity extends Activity  {
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				listener.onClick(v);
-				
-
 				addFolder();
 			}
 		});
@@ -85,8 +82,6 @@ public class MainActivity extends Activity  {
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				listener.onClick(v);
-				
 				try {
 					startVideo();
 				} catch (IOException e) {
@@ -98,8 +93,6 @@ public class MainActivity extends Activity  {
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				listener.onClick(v);
-				
 				try {
 					startPhoto();
 				} catch (IOException e) {
