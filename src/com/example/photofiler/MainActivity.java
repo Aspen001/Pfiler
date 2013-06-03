@@ -34,7 +34,6 @@ public class MainActivity extends Activity  {
 		setContentView(R.layout.activity_main);
 		mContainerView = (ViewGroup) findViewById(R.id.container);
 		fill(currentDir);
-		
 	}
 
     public void startPhoto(View v) throws IOException{
@@ -59,7 +58,10 @@ public class MainActivity extends Activity  {
      
     
 	public void fill(File f) {
+		f.mkdirs();
+		
 		File[] dirs = f.listFiles();
+		
 		for (File ff : dirs) {
 			if (ff.isDirectory()) {
 				listDirectory(ff.getName());
