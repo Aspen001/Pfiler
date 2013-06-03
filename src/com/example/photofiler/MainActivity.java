@@ -29,7 +29,7 @@ public class MainActivity extends Activity  {
     private ViewGroup mContainerView;
     private String folderName;
 
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -44,7 +44,7 @@ public class MainActivity extends Activity  {
 		View view;
 		final ViewFlipper flipper;
 		final ViewGroup tabBar;
-		OnClickListener listener;
+		final OnClickListener listener;
 		
 		flipper = (ViewFlipper)findViewById(R.id.side_layout_flip);
 		tabBar = (ViewGroup)findViewById(R.id.tab_bar);
@@ -57,29 +57,65 @@ public class MainActivity extends Activity  {
 		};
 		
 		view = findViewById(R.id.settingsButton);
-		view.setOnClickListener(listener);
+		view.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				listener.onClick(v);
+				
+
+				fileBrowser();
+			}
+		});
 		
 		view = findViewById(R.id.addButton);
-		view.setOnClickListener(listener);
+		view.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				listener.onClick(v);
+				
+
+				addFolder();
+			}
+		});
 		
 		view = findViewById(R.id.removeButton);
 		view.setOnClickListener(listener);
 		
 		view = findViewById(R.id.videoButton);
-		view.setOnClickListener(listener);
+		view.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				listener.onClick(v);
+				
+				try {
+					startVideo();
+				} catch (IOException e) {
+				}
+			}
+		});
 		
 		view = findViewById(R.id.cameraButton);
-		view.setOnClickListener(listener);
+		view.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				listener.onClick(v);
+				
+				try {
+					startPhoto();
+				} catch (IOException e) {
+				}
+			}
+		});
 	}
 
-    public void startPhoto(View v) throws IOException{
+    protected void startPhoto () throws IOException {
     	Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     	File f = File.createTempFile(Camera.getImageFileName(), Camera.getImageSuffix(), Camera.getAlbumDir());
     	takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
     	startActivityForResult(takePictureIntent, 0);
     }
 	
-    public void startVideo(View v) throws IOException{
+    protected void startVideo () throws IOException {
     	Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
     	File f = File.createTempFile(Camera.getImageFileName(), Camera.getVideoSuffix(), Camera.getAlbumDir());
     	takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
@@ -87,13 +123,13 @@ public class MainActivity extends Activity  {
     }
     
     
-    public void fileBrowser(View view){
+    protected void fileBrowser() {
     	Intent intent1 = new Intent(this, FileBrowserDeprecated.class);
     	startActivity(intent1);   
     }
      
     
-	public void fill(File f) {
+    protected void fill(File f) {
 		f.mkdirs();
 		
 		File[] dirs = f.listFiles();
@@ -107,7 +143,7 @@ public class MainActivity extends Activity  {
 	}
 
     
-    void listDirectory(String name) {
+    protected void listDirectory(String name) {
         final String folderName = name;
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
@@ -137,20 +173,20 @@ public class MainActivity extends Activity  {
     }
 
 
-    public void addFolder(View view) {
+    protected void addFolder () {
 		InputDialog inputDialog = new InputDialog();
 		inputDialog.dialog(this, "Create new folder", "");
 		folderName = inputDialog.getUserInput();
 		File direct = new File(Environment.getExternalStorageDirectory()
 				+ "/PHOTOFILER/" + folderName);
+		
 		if (!direct.exists())
 			if (direct.mkdir())
 				listDirectory(folderName);
-
 	}
     
 	
-	public void lol(String folderName){
+    protected void lol(String folderName){
 		Log.d("lol","lol");
 
 		File direct = new File(Environment.getExternalStorageDirectory()
@@ -160,7 +196,7 @@ public class MainActivity extends Activity  {
 				fill(currentDir);
 	}
 
-	public void removeFolder(View view, String folderName) {
+    protected void removeFolder(View view, String folderName) {
         //Doesn't seem like a needed if{...} however, people are manipulative,
         // it's better to make sure that they can't crash the application
         File childDir = new File(storageName + "/" + folderName);
@@ -177,7 +213,7 @@ public class MainActivity extends Activity  {
 
     
     
-    public void flip(View view, String folderName){
+    protected void flip(View view, String folderName){
     	 
     	
         File childDir = new File(storageName + "/" + folderName);
@@ -205,7 +241,7 @@ public class MainActivity extends Activity  {
         
     }
     
-    public void flip2(View view){	
+    protected void flip2(View view){	
     	// Get the ViewFlipper from the layout
         ViewFlipper vf = (ViewFlipper) findViewById(R.id.side_layout_flip);
 
@@ -216,7 +252,7 @@ public class MainActivity extends Activity  {
         
     }
     
-    public void flip3(View view){	
+    protected void flip3(View view){	
 //        ViewFlipper vf = (ViewFlipper) findViewById(R.id.settings_layout_flip);
 //        vf.setAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.slide_in_right));
 //        vf.showNext();
