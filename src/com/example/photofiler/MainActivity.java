@@ -2,6 +2,7 @@ package com.example.photofiler;
 
 import java.io.File;
 import java.io.IOException;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -12,13 +13,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.os.Environment;
 import android.view.*;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-
 
 public class MainActivity extends Activity  {
 
@@ -30,10 +31,45 @@ public class MainActivity extends Activity  {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		mContainerView = (ViewGroup) findViewById(R.id.container);
 		fill(currentDir);
+		
+		attachEventListeners();
+	}
+	
+	protected void attachEventListeners () {
+		View view;
+		final ViewFlipper flipper;
+		final ViewGroup tabBar;
+		OnClickListener listener;
+		
+		flipper = (ViewFlipper)findViewById(R.id.side_layout_flip);
+		tabBar = (ViewGroup)findViewById(R.id.tab_bar);
+		
+		listener = new OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				flipper.setDisplayedChild(tabBar.indexOfChild(v));
+			}
+		};
+		
+		view = findViewById(R.id.settingsButton);
+		view.setOnClickListener(listener);
+		
+		view = findViewById(R.id.addButton);
+		view.setOnClickListener(listener);
+		
+		view = findViewById(R.id.removeButton);
+		view.setOnClickListener(listener);
+		
+		view = findViewById(R.id.videoButton);
+		view.setOnClickListener(listener);
+		
+		view = findViewById(R.id.cameraButton);
+		view.setOnClickListener(listener);
 	}
 
     public void startPhoto(View v) throws IOException{
