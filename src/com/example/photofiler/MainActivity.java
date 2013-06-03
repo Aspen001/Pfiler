@@ -166,8 +166,7 @@ public class MainActivity extends Activity  {
     }
 
     protected void addFolder () {
-		InputDialog inputDialog = new InputDialog();
-		inputDialog.dialog(this, "Create new folder", "");
+		InputDialog inputDialog = new InputDialog(this, "Create new folder");	
 		waiting(inputDialog);				
 		}
 
