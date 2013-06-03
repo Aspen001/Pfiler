@@ -5,9 +5,12 @@ import java.io.IOException;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -165,24 +168,31 @@ public class MainActivity extends Activity  {
     protected void addFolder () {
 		InputDialog inputDialog = new InputDialog();
 		inputDialog.dialog(this, "Create new folder", "");
-		folderName = inputDialog.getUserInput();
-		File direct = new File(Environment.getExternalStorageDirectory()
-				+ "/PHOTOFILER/" + folderName);
-		
-		if (!direct.exists())
-			if (direct.mkdir())
-				listDirectory(folderName);
-	}
-    
-    protected void lol (String folderName) {
-		Log.d("lol","lol");
+		waiting(inputDialog);				
+		}
 
-		File direct = new File(Environment.getExternalStorageDirectory()
-				+ "/PHOTOFILER/" + folderName);
-		if (!direct.exists())
-			if (direct.mkdir())
-				fill(currentDir);
-	}
+    
+    protected void waiting (final InputDialog inputDialog) {
+    	if (inputDialog.getUserInput() == "null"){			
+			final Handler handler = new Handler();
+			 handler.postDelayed(new Runnable() {
+                 public void run() {
+                	 waiting(inputDialog);
+                 }}, 500);
+		} 
+		else{
+			
+			folderName = inputDialog.getUserInput();
+			File direct = new File(Environment.getExternalStorageDirectory()
+					+ "/PHOTOFILER/" + folderName);
+						if (!direct.exists())
+				if (direct.mkdir())
+					listDirectory(folderName);		
+			
+		}
+    	
+    }
+    
 
     protected void removeFolder (View view, String folderName) {
         //Doesn't seem like a needed if{...} however, people are manipulative,
