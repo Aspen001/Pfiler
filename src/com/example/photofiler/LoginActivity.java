@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -247,7 +246,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 	public void attemptLogin1(){
 //		tcpClient.sendLogin(email, password);
 		
-//		if(anv�ndarnamn.equalsTo(n�got anv�ndarnamn p� databasen ){
+//		if(anv���ndarnamn.equalsTo(n���got anv���ndarnamn p��� databasen ){
 //			Intent homeScreen = new Intent(this, MainActivity.class); //need to use this when login is correct 
 //			startActivity(homeScreen);
 //		}

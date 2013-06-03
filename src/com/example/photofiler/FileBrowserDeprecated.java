@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
 
-
 public class FileBrowserDeprecated extends ListActivity {
 
 	private File currentDir;
