@@ -122,14 +122,12 @@ public class MainActivity extends Activity  {
     	startActivityForResult(takeVideoIntent, 0);
     }
     
-    
-    protected void fileBrowser() {
+    protected void fileBrowser () {
     	Intent intent1 = new Intent(this, FileBrowserDeprecated.class);
     	startActivity(intent1);   
     }
      
-    
-    protected void fill(File f) {
+    protected void fill (File f) {
 		f.mkdirs();
 		
 		File[] dirs = f.listFiles();
@@ -142,8 +140,7 @@ public class MainActivity extends Activity  {
 		}
 	}
 
-    
-    protected void listDirectory(String name) {
+    protected void listDirectory (String name) {
         final String folderName = name;
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
@@ -172,7 +169,6 @@ public class MainActivity extends Activity  {
         }); mContainerView.addView(newView, 0);
     }
 
-
     protected void addFolder () {
 		InputDialog inputDialog = new InputDialog();
 		inputDialog.dialog(this, "Create new folder", "");
@@ -185,8 +181,7 @@ public class MainActivity extends Activity  {
 				listDirectory(folderName);
 	}
     
-	
-    protected void lol(String folderName){
+    protected void lol (String folderName) {
 		Log.d("lol","lol");
 
 		File direct = new File(Environment.getExternalStorageDirectory()
@@ -196,7 +191,7 @@ public class MainActivity extends Activity  {
 				fill(currentDir);
 	}
 
-    protected void removeFolder(View view, String folderName) {
+    protected void removeFolder (View view, String folderName) {
         //Doesn't seem like a needed if{...} however, people are manipulative,
         // it's better to make sure that they can't crash the application
         File childDir = new File(storageName + "/" + folderName);
@@ -210,12 +205,7 @@ public class MainActivity extends Activity  {
 
     }
 
-
-    
-    
-    protected void flip(View view, String folderName){
-    	 
-    	
+    protected void flip (View view, String folderName) {
         File childDir = new File(storageName + "/" + folderName);
         if (currentDir.isDirectory()) {
             String[] children = childDir.list();
@@ -267,8 +257,6 @@ public class MainActivity extends Activity  {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
-
 }
 
 /*
